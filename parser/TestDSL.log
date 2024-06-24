@@ -1,0 +1,560 @@
+Line 1: 
+Parsing: github.com/madlitz/inrush-core/parser.Parse
+Expect Token (Optional Multiple ): [NL] 
+	Scanning: github.com/madlitz/inrush-core/parser.Scan
+	Expect (Optional ) Rune: [WS TAB] Range: [] 
+	Expect () Rune: [- + * / ( ) NL : ; ' " EOF] Range: [0-9 A-Z a-z] Pos:1 Found: NL
+Line 2:
+	Matched: NL - NL
+	Expect (Optional Multiple ) Rune: [WS TAB] Range: [] 
+	Returning: github.com/madlitz/inrush-core/parser.Scan
+Found: NL
+	Parsing: github.com/madlitz/inrush-core/parser.skipNewLine
+	AST Skip Token: NL - NL, 
+	Returning: github.com/madlitz/inrush-core/parser.skipNewLine
+	Scanning: github.com/madlitz/inrush-core/parser.Scan
+	Expect (Optional ) Rune: [WS TAB] Range: [] 
+	Expect () Rune: [- + * / ( ) NL : ; ' " EOF] Range: [0-9 A-Z a-z] Pos:1 Found: P
+		Scanning: github.com/madlitz/inrush-core/parser.keywordOrVariable
+		Expect (Optional Multiple ) Rune: [_] Range: [A-Z a-z] Pos:2 Found: R, O, G, R, A, M
+		Matched: PROGRAM - PROGRAM
+		Returning: github.com/madlitz/inrush-core/parser.keywordOrVariable
+	Expect (Optional Multiple ) Rune: [WS TAB] Range: [] Pos:8 Found: WS
+	Returning: github.com/madlitz/inrush-core/parser.Scan
+Expect Token (): [PROGRAM] 
+Found: PROGRAM
+	Parsing: github.com/madlitz/inrush-core/parser.parseProgram
+	AST Skip Token: PROGRAM - PROGRAM, 
+	AST Add Node: PROGRAM
+	Expect Token (): [VARIABLE] 
+		Scanning: github.com/madlitz/inrush-core/parser.Scan
+		Expect (Optional ) Rune: [WS TAB] Range: [] 
+		Expect () Rune: [- + * / ( ) NL : ; ' " EOF] Range: [0-9 A-Z a-z] Pos:9 Found: T
+			Scanning: github.com/madlitz/inrush-core/parser.keywordOrVariable
+			Expect (Optional Multiple ) Rune: [_] Range: [A-Z a-z] Pos:10 Found: e, s, t, P, r, o, g, r, a, m
+			Matched: VARIABLE - TestProgram
+			Returning: github.com/madlitz/inrush-core/parser.keywordOrVariable
+		Expect (Optional Multiple ) Rune: [WS TAB] Range: [] 
+		Returning: github.com/madlitz/inrush-core/parser.Scan
+	Found: VARIABLE
+	AST Add Tokens: VARIABLE - TestProgram, 
+	Expect Token (Optional Multiple ): [NL] 
+		Scanning: github.com/madlitz/inrush-core/parser.Scan
+		Expect (Optional ) Rune: [WS TAB] Range: [] 
+		Expect () Rune: [- + * / ( ) NL : ; ' " EOF] Range: [0-9 A-Z a-z] Pos:20 Found: NL
+Line 3:
+		Matched: NL - NL
+		Expect (Optional Multiple ) Rune: [WS TAB] Range: [] Pos:1 Found: TAB
+		Returning: github.com/madlitz/inrush-core/parser.Scan
+	Found: NL
+		Parsing: github.com/madlitz/inrush-core/parser.skipNewLine
+		AST Skip Token: NL - NL, 
+		Returning: github.com/madlitz/inrush-core/parser.skipNewLine
+		Scanning: github.com/madlitz/inrush-core/parser.Scan
+		Expect (Optional ) Rune: [WS TAB] Range: [] 
+		Expect () Rune: [- + * / ( ) NL : ; ' " EOF] Range: [0-9 A-Z a-z] Pos:2 Found: V
+			Scanning: github.com/madlitz/inrush-core/parser.keywordOrVariable
+			Expect (Optional Multiple ) Rune: [_] Range: [A-Z a-z] Pos:3 Found: A, R
+			Matched: VAR - VAR
+			Returning: github.com/madlitz/inrush-core/parser.keywordOrVariable
+		Expect (Optional Multiple ) Rune: [WS TAB] Range: [] 
+		Returning: github.com/madlitz/inrush-core/parser.Scan
+	Expect Token (Optional Multiple ): [NL VAR VARIABLE IF] 
+	Found: VAR
+		Parsing: github.com/madlitz/inrush-core/parser.parseVarBlock
+		AST Skip Token: VAR - VAR, 
+		AST Add Node: VAR_BLOCK
+		Expect Token (Optional Multiple ): [NL] 
+			Scanning: github.com/madlitz/inrush-core/parser.Scan
+			Expect (Optional ) Rune: [WS TAB] Range: [] 
+			Expect () Rune: [- + * / ( ) NL : ; ' " EOF] Range: [0-9 A-Z a-z] Pos:5 Found: NL
+Line 4:
+			Matched: NL - NL
+			Expect (Optional Multiple ) Rune: [WS TAB] Range: [] Pos:1 Found: TAB, TAB
+			Returning: github.com/madlitz/inrush-core/parser.Scan
+		Found: NL
+			Parsing: github.com/madlitz/inrush-core/parser.skipNewLine
+			AST Skip Token: NL - NL, 
+			Returning: github.com/madlitz/inrush-core/parser.skipNewLine
+			Scanning: github.com/madlitz/inrush-core/parser.Scan
+			Expect (Optional ) Rune: [WS TAB] Range: [] 
+			Expect () Rune: [- + * / ( ) NL : ; ' " EOF] Range: [0-9 A-Z a-z] Pos:3 Found: a
+				Scanning: github.com/madlitz/inrush-core/parser.keywordOrVariable
+				Expect (Optional Multiple ) Rune: [_] Range: [A-Z a-z] 
+				Matched: VARIABLE - a
+				Returning: github.com/madlitz/inrush-core/parser.keywordOrVariable
+			Expect (Optional Multiple ) Rune: [WS TAB] Range: [] Pos:4 Found: WS
+			Returning: github.com/madlitz/inrush-core/parser.Scan
+		Expect Token (Optional Multiple ): [VARIABLE] 
+		Found: VARIABLE
+			Parsing: github.com/madlitz/inrush-core/parser.parseVar
+			AST Add Node: VAR
+			Expect Token (): [COLON] 
+				Scanning: github.com/madlitz/inrush-core/parser.Scan
+				Expect (Optional ) Rune: [WS TAB] Range: [] 
+				Expect () Rune: [- + * / ( ) NL : ; ' " EOF] Range: [0-9 A-Z a-z] Pos:5 Found: :
+					Scanning: github.com/madlitz/inrush-core/parser.assign
+					Expect (Optional ) Rune: [=] Range: [] 
+					Matched: COLON - :
+					Returning: github.com/madlitz/inrush-core/parser.assign
+				Expect (Optional Multiple ) Rune: [WS TAB] Range: [] Pos:6 Found: WS
+				Returning: github.com/madlitz/inrush-core/parser.Scan
+			Found: COLON
+			AST Skip Token: COLON - :, 
+			Expect Token (): [BOOL INT REAL STRING] 
+				Scanning: github.com/madlitz/inrush-core/parser.Scan
+				Expect (Optional ) Rune: [WS TAB] Range: [] 
+				Expect () Rune: [- + * / ( ) NL : ; ' " EOF] Range: [0-9 A-Z a-z] Pos:7 Found: B
+					Scanning: github.com/madlitz/inrush-core/parser.keywordOrVariable
+					Expect (Optional Multiple ) Rune: [_] Range: [A-Z a-z] Pos:8 Found: O, O, L
+					Matched: BOOL - BOOL
+					Returning: github.com/madlitz/inrush-core/parser.keywordOrVariable
+				Expect (Optional Multiple ) Rune: [WS TAB] Range: [] 
+				Returning: github.com/madlitz/inrush-core/parser.Scan
+			Found: BOOL
+			Expect Token (): [SEMICOLON] 
+				Scanning: github.com/madlitz/inrush-core/parser.Scan
+				Expect (Optional ) Rune: [WS TAB] Range: [] 
+				Expect () Rune: [- + * / ( ) NL : ; ' " EOF] Range: [0-9 A-Z a-z] Pos:11 Found: ;
+				Matched: SEMICOLON - ;
+				Expect (Optional Multiple ) Rune: [WS TAB] Range: [] 
+				Returning: github.com/madlitz/inrush-core/parser.Scan
+			Found: SEMICOLON
+			AST Skip Token: SEMICOLON - ;, 
+			Expect Token (Optional Multiple ): [NL] 
+				Scanning: github.com/madlitz/inrush-core/parser.Scan
+				Expect (Optional ) Rune: [WS TAB] Range: [] 
+				Expect () Rune: [- + * / ( ) NL : ; ' " EOF] Range: [0-9 A-Z a-z] Pos:12 Found: NL
+Line 5:
+				Matched: NL - NL
+				Expect (Optional Multiple ) Rune: [WS TAB] Range: [] Pos:1 Found: TAB, TAB
+				Returning: github.com/madlitz/inrush-core/parser.Scan
+			Found: NL
+				Parsing: github.com/madlitz/inrush-core/parser.skipNewLine
+				AST Skip Token: NL - NL, 
+				Returning: github.com/madlitz/inrush-core/parser.skipNewLine
+				Scanning: github.com/madlitz/inrush-core/parser.Scan
+				Expect (Optional ) Rune: [WS TAB] Range: [] 
+				Expect () Rune: [- + * / ( ) NL : ; ' " EOF] Range: [0-9 A-Z a-z] Pos:3 Found: b
+					Scanning: github.com/madlitz/inrush-core/parser.keywordOrVariable
+					Expect (Optional Multiple ) Rune: [_] Range: [A-Z a-z] 
+					Matched: VARIABLE - b
+					Returning: github.com/madlitz/inrush-core/parser.keywordOrVariable
+				Expect (Optional Multiple ) Rune: [WS TAB] Range: [] Pos:4 Found: WS
+				Returning: github.com/madlitz/inrush-core/parser.Scan
+			AST Add Tokens: VARIABLE - a, BOOL - BOOL, 
+			AST Walk Up
+			Returning: github.com/madlitz/inrush-core/parser.parseVar
+		Found: VARIABLE
+			Parsing: github.com/madlitz/inrush-core/parser.parseVar
+			AST Add Node: VAR
+			Expect Token (): [COLON] 
+				Scanning: github.com/madlitz/inrush-core/parser.Scan
+				Expect (Optional ) Rune: [WS TAB] Range: [] 
+				Expect () Rune: [- + * / ( ) NL : ; ' " EOF] Range: [0-9 A-Z a-z] Pos:5 Found: :
+					Scanning: github.com/madlitz/inrush-core/parser.assign
+					Expect (Optional ) Rune: [=] Range: [] 
+					Matched: COLON - :
+					Returning: github.com/madlitz/inrush-core/parser.assign
+				Expect (Optional Multiple ) Rune: [WS TAB] Range: [] Pos:6 Found: WS
+				Returning: github.com/madlitz/inrush-core/parser.Scan
+			Found: COLON
+			AST Skip Token: COLON - :, 
+			Expect Token (): [BOOL INT REAL STRING] 
+				Scanning: github.com/madlitz/inrush-core/parser.Scan
+				Expect (Optional ) Rune: [WS TAB] Range: [] 
+				Expect () Rune: [- + * / ( ) NL : ; ' " EOF] Range: [0-9 A-Z a-z] Pos:7 Found: I
+					Scanning: github.com/madlitz/inrush-core/parser.keywordOrVariable
+					Expect (Optional Multiple ) Rune: [_] Range: [A-Z a-z] Pos:8 Found: N, T
+					Matched: INT - INT
+					Returning: github.com/madlitz/inrush-core/parser.keywordOrVariable
+				Expect (Optional Multiple ) Rune: [WS TAB] Range: [] 
+				Returning: github.com/madlitz/inrush-core/parser.Scan
+			Found: INT
+			Expect Token (): [SEMICOLON] 
+				Scanning: github.com/madlitz/inrush-core/parser.Scan
+				Expect (Optional ) Rune: [WS TAB] Range: [] 
+				Expect () Rune: [- + * / ( ) NL : ; ' " EOF] Range: [0-9 A-Z a-z] Pos:10 Found: ;
+				Matched: SEMICOLON - ;
+				Expect (Optional Multiple ) Rune: [WS TAB] Range: [] 
+				Returning: github.com/madlitz/inrush-core/parser.Scan
+			Found: SEMICOLON
+			AST Skip Token: SEMICOLON - ;, 
+			Expect Token (Optional Multiple ): [NL] 
+				Scanning: github.com/madlitz/inrush-core/parser.Scan
+				Expect (Optional ) Rune: [WS TAB] Range: [] 
+				Expect () Rune: [- + * / ( ) NL : ; ' " EOF] Range: [0-9 A-Z a-z] Pos:11 Found: NL
+Line 6:
+				Matched: NL - NL
+				Expect (Optional Multiple ) Rune: [WS TAB] Range: [] Pos:1 Found: TAB
+				Returning: github.com/madlitz/inrush-core/parser.Scan
+			Found: NL
+				Parsing: github.com/madlitz/inrush-core/parser.skipNewLine
+				AST Skip Token: NL - NL, 
+				Returning: github.com/madlitz/inrush-core/parser.skipNewLine
+				Scanning: github.com/madlitz/inrush-core/parser.Scan
+				Expect (Optional ) Rune: [WS TAB] Range: [] 
+				Expect () Rune: [- + * / ( ) NL : ; ' " EOF] Range: [0-9 A-Z a-z] Pos:2 Found: E
+					Scanning: github.com/madlitz/inrush-core/parser.keywordOrVariable
+					Expect (Optional Multiple ) Rune: [_] Range: [A-Z a-z] Pos:3 Found: N, D, _, V, A, R
+					Matched: END_VAR - END_VAR
+					Returning: github.com/madlitz/inrush-core/parser.keywordOrVariable
+				Expect (Optional Multiple ) Rune: [WS TAB] Range: [] 
+				Returning: github.com/madlitz/inrush-core/parser.Scan
+			AST Add Tokens: VARIABLE - b, INT - INT, 
+			AST Walk Up
+			Returning: github.com/madlitz/inrush-core/parser.parseVar
+		Expect Token (Optional Multiple ): [NL] 
+		Expect Token (): [END_VAR] 
+		Found: END_VAR
+		AST Skip Token: END_VAR - END_VAR, 
+		AST Walk Up
+		Returning: github.com/madlitz/inrush-core/parser.parseVarBlock
+		Scanning: github.com/madlitz/inrush-core/parser.Scan
+		Expect (Optional ) Rune: [WS TAB] Range: [] 
+		Expect () Rune: [- + * / ( ) NL : ; ' " EOF] Range: [0-9 A-Z a-z] Pos:9 Found: NL
+Line 7:
+		Matched: NL - NL
+		Expect (Optional Multiple ) Rune: [WS TAB] Range: [] Pos:1 Found: TAB
+		Returning: github.com/madlitz/inrush-core/parser.Scan
+	Found: NL
+		Parsing: github.com/madlitz/inrush-core/parser.skipNewLine
+		AST Skip Token: NL - NL, 
+		Returning: github.com/madlitz/inrush-core/parser.skipNewLine
+		Scanning: github.com/madlitz/inrush-core/parser.Scan
+		Expect (Optional ) Rune: [WS TAB] Range: [] 
+		Expect () Rune: [- + * / ( ) NL : ; ' " EOF] Range: [0-9 A-Z a-z] Pos:2 Found: a
+			Scanning: github.com/madlitz/inrush-core/parser.keywordOrVariable
+			Expect (Optional Multiple ) Rune: [_] Range: [A-Z a-z] 
+			Matched: VARIABLE - a
+			Returning: github.com/madlitz/inrush-core/parser.keywordOrVariable
+		Expect (Optional Multiple ) Rune: [WS TAB] Range: [] Pos:3 Found: WS
+		Returning: github.com/madlitz/inrush-core/parser.Scan
+	Found: VARIABLE
+		Parsing: github.com/madlitz/inrush-core/parser.assignmentOrCall
+		AST Add Node: ASSIGNMENT
+		AST Add Tokens: VARIABLE - a, 
+		Expect Token (): [ASSIGN] 
+			Scanning: github.com/madlitz/inrush-core/parser.Scan
+			Expect (Optional ) Rune: [WS TAB] Range: [] 
+			Expect () Rune: [- + * / ( ) NL : ; ' " EOF] Range: [0-9 A-Z a-z] Pos:4 Found: :
+				Scanning: github.com/madlitz/inrush-core/parser.assign
+				Expect (Optional ) Rune: [=] Range: [] Pos:5 Found: =
+					Scanning: github.com/madlitz/inrush-core/parser.assign.func1
+					Matched: ASSIGN - :=
+					Returning: github.com/madlitz/inrush-core/parser.assign.func1
+				Returning: github.com/madlitz/inrush-core/parser.assign
+			Expect (Optional Multiple ) Rune: [WS TAB] Range: [] Pos:6 Found: WS
+			Returning: github.com/madlitz/inrush-core/parser.Scan
+		Found: ASSIGN
+		AST Add Tokens: ASSIGN - :=, 
+		Expect Token (): [LITERAL VARIABLE] 
+			Scanning: github.com/madlitz/inrush-core/parser.Scan
+			Expect (Optional ) Rune: [WS TAB] Range: [] 
+			Expect () Rune: [- + * / ( ) NL : ; ' " EOF] Range: [0-9 A-Z a-z] Pos:7 Found: T
+				Scanning: github.com/madlitz/inrush-core/parser.keywordOrVariable
+				Expect (Optional Multiple ) Rune: [_] Range: [A-Z a-z] Pos:8 Found: R, U, E
+				Matched: LITERAL - TRUE
+				Returning: github.com/madlitz/inrush-core/parser.keywordOrVariable
+			Expect (Optional Multiple ) Rune: [WS TAB] Range: [] 
+			Returning: github.com/madlitz/inrush-core/parser.Scan
+		Found: LITERAL
+		AST Add Tokens: LITERAL - TRUE, 
+		Expect Token (Optional ): [PLUS MINUS MULTIPLY DIVIDE] 
+			Scanning: github.com/madlitz/inrush-core/parser.Scan
+			Expect (Optional ) Rune: [WS TAB] Range: [] 
+			Expect () Rune: [- + * / ( ) NL : ; ' " EOF] Range: [0-9 A-Z a-z] Pos:11 Found: ;
+			Matched: SEMICOLON - ;
+			Expect (Optional Multiple ) Rune: [WS TAB] Range: [] 
+			Returning: github.com/madlitz/inrush-core/parser.Scan
+		Expect Token (): [SEMICOLON] 
+		Found: SEMICOLON
+		AST Skip Token: SEMICOLON - ;, 
+		AST Walk Up
+		Expect Token (Optional Multiple ): [NL] 
+			Scanning: github.com/madlitz/inrush-core/parser.Scan
+			Expect (Optional ) Rune: [WS TAB] Range: [] 
+			Expect () Rune: [- + * / ( ) NL : ; ' " EOF] Range: [0-9 A-Z a-z] Pos:12 Found: NL
+Line 8:
+			Matched: NL - NL
+			Expect (Optional Multiple ) Rune: [WS TAB] Range: [] Pos:1 Found: TAB
+			Returning: github.com/madlitz/inrush-core/parser.Scan
+		Found: NL
+			Parsing: github.com/madlitz/inrush-core/parser.skipNewLine
+			AST Skip Token: NL - NL, 
+			Returning: github.com/madlitz/inrush-core/parser.skipNewLine
+			Scanning: github.com/madlitz/inrush-core/parser.Scan
+			Expect (Optional ) Rune: [WS TAB] Range: [] 
+			Expect () Rune: [- + * / ( ) NL : ; ' " EOF] Range: [0-9 A-Z a-z] Pos:2 Found: b
+				Scanning: github.com/madlitz/inrush-core/parser.keywordOrVariable
+				Expect (Optional Multiple ) Rune: [_] Range: [A-Z a-z] 
+				Matched: VARIABLE - b
+				Returning: github.com/madlitz/inrush-core/parser.keywordOrVariable
+			Expect (Optional Multiple ) Rune: [WS TAB] Range: [] Pos:3 Found: WS
+			Returning: github.com/madlitz/inrush-core/parser.Scan
+		Returning: github.com/madlitz/inrush-core/parser.assignmentOrCall
+	Found: VARIABLE
+		Parsing: github.com/madlitz/inrush-core/parser.assignmentOrCall
+		AST Add Node: ASSIGNMENT
+		AST Add Tokens: VARIABLE - b, 
+		Expect Token (): [ASSIGN] 
+			Scanning: github.com/madlitz/inrush-core/parser.Scan
+			Expect (Optional ) Rune: [WS TAB] Range: [] 
+			Expect () Rune: [- + * / ( ) NL : ; ' " EOF] Range: [0-9 A-Z a-z] Pos:4 Found: :
+				Scanning: github.com/madlitz/inrush-core/parser.assign
+				Expect (Optional ) Rune: [=] Range: [] Pos:5 Found: =
+					Scanning: github.com/madlitz/inrush-core/parser.assign.func1
+					Matched: ASSIGN - :=
+					Returning: github.com/madlitz/inrush-core/parser.assign.func1
+				Returning: github.com/madlitz/inrush-core/parser.assign
+			Expect (Optional Multiple ) Rune: [WS TAB] Range: [] Pos:6 Found: WS
+			Returning: github.com/madlitz/inrush-core/parser.Scan
+		Found: ASSIGN
+		AST Add Tokens: ASSIGN - :=, 
+		Expect Token (): [LITERAL VARIABLE] 
+			Scanning: github.com/madlitz/inrush-core/parser.Scan
+			Expect (Optional ) Rune: [WS TAB] Range: [] 
+			Expect () Rune: [- + * / ( ) NL : ; ' " EOF] Range: [0-9 A-Z a-z] Pos:7 Found: 5
+				Scanning: github.com/madlitz/inrush-core/parser.literal
+				Expect (Optional Multiple ) Rune: [] Range: [0-9] 
+				Expect (Optional ) Rune: [.] Range: [] 
+				Matched: LITERAL - 5
+				Returning: github.com/madlitz/inrush-core/parser.literal
+			Expect (Optional Multiple ) Rune: [WS TAB] Range: [] 
+			Returning: github.com/madlitz/inrush-core/parser.Scan
+		Found: LITERAL
+		AST Add Tokens: LITERAL - 5, 
+		Expect Token (Optional ): [PLUS MINUS MULTIPLY DIVIDE] 
+			Scanning: github.com/madlitz/inrush-core/parser.Scan
+			Expect (Optional ) Rune: [WS TAB] Range: [] 
+			Expect () Rune: [- + * / ( ) NL : ; ' " EOF] Range: [0-9 A-Z a-z] Pos:8 Found: ;
+			Matched: SEMICOLON - ;
+			Expect (Optional Multiple ) Rune: [WS TAB] Range: [] 
+			Returning: github.com/madlitz/inrush-core/parser.Scan
+		Expect Token (): [SEMICOLON] 
+		Found: SEMICOLON
+		AST Skip Token: SEMICOLON - ;, 
+		AST Walk Up
+		Expect Token (Optional Multiple ): [NL] 
+			Scanning: github.com/madlitz/inrush-core/parser.Scan
+			Expect (Optional ) Rune: [WS TAB] Range: [] 
+			Expect () Rune: [- + * / ( ) NL : ; ' " EOF] Range: [0-9 A-Z a-z] Pos:9 Found: NL
+Line 9:
+			Matched: NL - NL
+			Expect (Optional Multiple ) Rune: [WS TAB] Range: [] Pos:1 Found: TAB
+			Returning: github.com/madlitz/inrush-core/parser.Scan
+		Found: NL
+			Parsing: github.com/madlitz/inrush-core/parser.skipNewLine
+			AST Skip Token: NL - NL, 
+			Returning: github.com/madlitz/inrush-core/parser.skipNewLine
+			Scanning: github.com/madlitz/inrush-core/parser.Scan
+			Expect (Optional ) Rune: [WS TAB] Range: [] 
+			Expect () Rune: [- + * / ( ) NL : ; ' " EOF] Range: [0-9 A-Z a-z] Pos:2 Found: I
+				Scanning: github.com/madlitz/inrush-core/parser.keywordOrVariable
+				Expect (Optional Multiple ) Rune: [_] Range: [A-Z a-z] Pos:3 Found: F
+				Matched: IF - IF
+				Returning: github.com/madlitz/inrush-core/parser.keywordOrVariable
+			Expect (Optional Multiple ) Rune: [WS TAB] Range: [] Pos:4 Found: WS
+			Returning: github.com/madlitz/inrush-core/parser.Scan
+		Returning: github.com/madlitz/inrush-core/parser.assignmentOrCall
+	Found: IF
+		Parsing: github.com/madlitz/inrush-core/parser.parseIfStatement
+		AST Skip Token: IF - IF, 
+		AST Add Node: IF_STATEMENT
+		Expect Token (): [VARIABLE] 
+			Scanning: github.com/madlitz/inrush-core/parser.Scan
+			Expect (Optional ) Rune: [WS TAB] Range: [] 
+			Expect () Rune: [- + * / ( ) NL : ; ' " EOF] Range: [0-9 A-Z a-z] Pos:5 Found: a
+				Scanning: github.com/madlitz/inrush-core/parser.keywordOrVariable
+				Expect (Optional Multiple ) Rune: [_] Range: [A-Z a-z] 
+				Matched: VARIABLE - a
+				Returning: github.com/madlitz/inrush-core/parser.keywordOrVariable
+			Expect (Optional Multiple ) Rune: [WS TAB] Range: [] Pos:6 Found: WS
+			Returning: github.com/madlitz/inrush-core/parser.Scan
+		Found: VARIABLE
+		AST Add Tokens: VARIABLE - a, 
+		Expect Token (): [THEN] 
+			Scanning: github.com/madlitz/inrush-core/parser.Scan
+			Expect (Optional ) Rune: [WS TAB] Range: [] 
+			Expect () Rune: [- + * / ( ) NL : ; ' " EOF] Range: [0-9 A-Z a-z] Pos:7 Found: T
+				Scanning: github.com/madlitz/inrush-core/parser.keywordOrVariable
+				Expect (Optional Multiple ) Rune: [_] Range: [A-Z a-z] Pos:8 Found: H, E, N
+				Matched: THEN - THEN
+				Returning: github.com/madlitz/inrush-core/parser.keywordOrVariable
+			Expect (Optional Multiple ) Rune: [WS TAB] Range: [] 
+			Returning: github.com/madlitz/inrush-core/parser.Scan
+		Found: THEN
+		AST Skip Token: THEN - THEN, 
+		Expect Token (Optional Multiple ): [NL] 
+			Scanning: github.com/madlitz/inrush-core/parser.Scan
+			Expect (Optional ) Rune: [WS TAB] Range: [] 
+			Expect () Rune: [- + * / ( ) NL : ; ' " EOF] Range: [0-9 A-Z a-z] Pos:11 Found: NL
+Line 10:
+			Matched: NL - NL
+			Expect (Optional Multiple ) Rune: [WS TAB] Range: [] Pos:1 Found: TAB, TAB
+			Returning: github.com/madlitz/inrush-core/parser.Scan
+		Found: NL
+			Parsing: github.com/madlitz/inrush-core/parser.skipNewLine
+			AST Skip Token: NL - NL, 
+			Returning: github.com/madlitz/inrush-core/parser.skipNewLine
+			Scanning: github.com/madlitz/inrush-core/parser.Scan
+			Expect (Optional ) Rune: [WS TAB] Range: [] 
+			Expect () Rune: [- + * / ( ) NL : ; ' " EOF] Range: [0-9 A-Z a-z] Pos:3 Found: b
+				Scanning: github.com/madlitz/inrush-core/parser.keywordOrVariable
+				Expect (Optional Multiple ) Rune: [_] Range: [A-Z a-z] 
+				Matched: VARIABLE - b
+				Returning: github.com/madlitz/inrush-core/parser.keywordOrVariable
+			Expect (Optional Multiple ) Rune: [WS TAB] Range: [] Pos:4 Found: WS
+			Returning: github.com/madlitz/inrush-core/parser.Scan
+		Expect Token (Optional Multiple ): [VARIABLE IF] 
+		Found: VARIABLE
+			Parsing: github.com/madlitz/inrush-core/parser.assignmentOrCall
+			AST Add Node: ASSIGNMENT
+			AST Add Tokens: VARIABLE - b, 
+			Expect Token (): [ASSIGN] 
+				Scanning: github.com/madlitz/inrush-core/parser.Scan
+				Expect (Optional ) Rune: [WS TAB] Range: [] 
+				Expect () Rune: [- + * / ( ) NL : ; ' " EOF] Range: [0-9 A-Z a-z] Pos:5 Found: :
+					Scanning: github.com/madlitz/inrush-core/parser.assign
+					Expect (Optional ) Rune: [=] Range: [] Pos:6 Found: =
+						Scanning: github.com/madlitz/inrush-core/parser.assign.func1
+						Matched: ASSIGN - :=
+						Returning: github.com/madlitz/inrush-core/parser.assign.func1
+					Returning: github.com/madlitz/inrush-core/parser.assign
+				Expect (Optional Multiple ) Rune: [WS TAB] Range: [] Pos:7 Found: WS
+				Returning: github.com/madlitz/inrush-core/parser.Scan
+			Found: ASSIGN
+			AST Add Tokens: ASSIGN - :=, 
+			Expect Token (): [LITERAL VARIABLE] 
+				Scanning: github.com/madlitz/inrush-core/parser.Scan
+				Expect (Optional ) Rune: [WS TAB] Range: [] 
+				Expect () Rune: [- + * / ( ) NL : ; ' " EOF] Range: [0-9 A-Z a-z] Pos:8 Found: b
+					Scanning: github.com/madlitz/inrush-core/parser.keywordOrVariable
+					Expect (Optional Multiple ) Rune: [_] Range: [A-Z a-z] 
+					Matched: VARIABLE - b
+					Returning: github.com/madlitz/inrush-core/parser.keywordOrVariable
+				Expect (Optional Multiple ) Rune: [WS TAB] Range: [] Pos:9 Found: WS
+				Returning: github.com/madlitz/inrush-core/parser.Scan
+			Found: VARIABLE
+			AST Add Tokens: VARIABLE - b, 
+			Expect Token (Optional ): [PLUS MINUS MULTIPLY DIVIDE] 
+				Scanning: github.com/madlitz/inrush-core/parser.Scan
+				Expect (Optional ) Rune: [WS TAB] Range: [] 
+				Expect () Rune: [- + * / ( ) NL : ; ' " EOF] Range: [0-9 A-Z a-z] Pos:10 Found: +
+				Matched: PLUS - +
+				Expect (Optional Multiple ) Rune: [WS TAB] Range: [] Pos:11 Found: WS
+				Returning: github.com/madlitz/inrush-core/parser.Scan
+			Found: PLUS
+				Parsing: github.com/madlitz/inrush-core/parser.expression
+				AST Add Node: EXPRESSION
+				AST Add Tokens: PLUS - +, 
+				Expect Token (): [LITERAL VARIABLE] 
+					Scanning: github.com/madlitz/inrush-core/parser.Scan
+					Expect (Optional ) Rune: [WS TAB] Range: [] 
+					Expect () Rune: [- + * / ( ) NL : ; ' " EOF] Range: [0-9 A-Z a-z] Pos:12 Found: 1
+						Scanning: github.com/madlitz/inrush-core/parser.literal
+						Expect (Optional Multiple ) Rune: [] Range: [0-9] 
+						Expect (Optional ) Rune: [.] Range: [] 
+						Matched: LITERAL - 1
+						Returning: github.com/madlitz/inrush-core/parser.literal
+					Expect (Optional Multiple ) Rune: [WS TAB] Range: [] 
+					Returning: github.com/madlitz/inrush-core/parser.Scan
+				Found: LITERAL
+					Parsing: github.com/madlitz/inrush-core/parser.term
+					AST Add Node: TERMINAL
+					AST Add Tokens: LITERAL - 1, 
+					AST Walk Up
+					Returning: github.com/madlitz/inrush-core/parser.term
+				AST Walk Up
+				Returning: github.com/madlitz/inrush-core/parser.expression
+			Expect Token (): [SEMICOLON] 
+				Scanning: github.com/madlitz/inrush-core/parser.Scan
+				Expect (Optional ) Rune: [WS TAB] Range: [] 
+				Expect () Rune: [- + * / ( ) NL : ; ' " EOF] Range: [0-9 A-Z a-z] Pos:13 Found: ;
+				Matched: SEMICOLON - ;
+				Expect (Optional Multiple ) Rune: [WS TAB] Range: [] 
+				Returning: github.com/madlitz/inrush-core/parser.Scan
+			Found: SEMICOLON
+			AST Skip Token: SEMICOLON - ;, 
+			AST Walk Up
+			Expect Token (Optional Multiple ): [NL] 
+				Scanning: github.com/madlitz/inrush-core/parser.Scan
+				Expect (Optional ) Rune: [WS TAB] Range: [] 
+				Expect () Rune: [- + * / ( ) NL : ; ' " EOF] Range: [0-9 A-Z a-z] Pos:14 Found: NL
+Line 11:
+				Matched: NL - NL
+				Expect (Optional Multiple ) Rune: [WS TAB] Range: [] Pos:1 Found: TAB
+				Returning: github.com/madlitz/inrush-core/parser.Scan
+			Found: NL
+				Parsing: github.com/madlitz/inrush-core/parser.skipNewLine
+				AST Skip Token: NL - NL, 
+				Returning: github.com/madlitz/inrush-core/parser.skipNewLine
+				Scanning: github.com/madlitz/inrush-core/parser.Scan
+				Expect (Optional ) Rune: [WS TAB] Range: [] 
+				Expect () Rune: [- + * / ( ) NL : ; ' " EOF] Range: [0-9 A-Z a-z] Pos:2 Found: E
+					Scanning: github.com/madlitz/inrush-core/parser.keywordOrVariable
+					Expect (Optional Multiple ) Rune: [_] Range: [A-Z a-z] Pos:3 Found: N, D, _, I, F
+					Matched: END_IF - END_IF
+					Returning: github.com/madlitz/inrush-core/parser.keywordOrVariable
+				Expect (Optional Multiple ) Rune: [WS TAB] Range: [] 
+				Returning: github.com/madlitz/inrush-core/parser.Scan
+			Returning: github.com/madlitz/inrush-core/parser.assignmentOrCall
+		Expect Token (Optional Multiple ): [NL] 
+		Expect Token (Optional ): [ELSE] 
+		AST Skip Token: 
+***Warning: No Tokens to Skip
+		Expect Token (Optional Multiple ): [NL] 
+		Expect Token (Optional Multiple ): [VARIABLE IF] 
+		Expect Token (Optional Multiple ): [NL] 
+		Expect Token (): [END_IF] 
+		Found: END_IF
+		AST Skip Token: END_IF - END_IF, 
+		AST Walk Up
+		Returning: github.com/madlitz/inrush-core/parser.parseIfStatement
+		Scanning: github.com/madlitz/inrush-core/parser.Scan
+		Expect (Optional ) Rune: [WS TAB] Range: [] 
+		Expect () Rune: [- + * / ( ) NL : ; ' " EOF] Range: [0-9 A-Z a-z] Pos:8 Found: NL
+Line 12:
+		Matched: NL - NL
+		Expect (Optional Multiple ) Rune: [WS TAB] Range: [] 
+		Returning: github.com/madlitz/inrush-core/parser.Scan
+	Found: NL
+		Parsing: github.com/madlitz/inrush-core/parser.skipNewLine
+		AST Skip Token: NL - NL, 
+		Returning: github.com/madlitz/inrush-core/parser.skipNewLine
+		Scanning: github.com/madlitz/inrush-core/parser.Scan
+		Expect (Optional ) Rune: [WS TAB] Range: [] 
+		Expect () Rune: [- + * / ( ) NL : ; ' " EOF] Range: [0-9 A-Z a-z] Pos:1 Found: E
+			Scanning: github.com/madlitz/inrush-core/parser.keywordOrVariable
+			Expect (Optional Multiple ) Rune: [_] Range: [A-Z a-z] Pos:2 Found: N, D, _, P, R, O, G, R, A, M
+			Matched: END_PROGRAM - END_PROGRAM
+			Returning: github.com/madlitz/inrush-core/parser.keywordOrVariable
+		Expect (Optional Multiple ) Rune: [WS TAB] Range: [] 
+		Returning: github.com/madlitz/inrush-core/parser.Scan
+	Expect Token (): [END_PROGRAM] 
+	Found: END_PROGRAM
+	AST Skip Token: END_PROGRAM - END_PROGRAM, 
+	Returning: github.com/madlitz/inrush-core/parser.parseProgram
+Expect Token (Optional Multiple ): [NL] 
+	Scanning: github.com/madlitz/inrush-core/parser.Scan
+	Expect (Optional ) Rune: [WS TAB] Range: [] 
+	Expect () Rune: [- + * / ( ) NL : ; ' " EOF] Range: [0-9 A-Z a-z] Pos:12 Found: NL
+Line 13:
+	Matched: NL - NL
+	Expect (Optional Multiple ) Rune: [WS TAB] Range: [] 
+	Returning: github.com/madlitz/inrush-core/parser.Scan
+Found: NL
+	Parsing: github.com/madlitz/inrush-core/parser.skipNewLine
+	AST Skip Token: NL - NL, 
+	Returning: github.com/madlitz/inrush-core/parser.skipNewLine
+	Scanning: github.com/madlitz/inrush-core/parser.Scan
+	Expect (Optional ) Rune: [WS TAB] Range: [] 
+	Expect () Rune: [- + * / ( ) NL : ; ' " EOF] Range: [0-9 A-Z a-z] Pos:1 Found: EOF
+		Scanning: github.com/madlitz/inrush-core/parser.eof
+		Matched: EOF - EOF
+		Returning: github.com/madlitz/inrush-core/parser.eof
+	Expect (Optional Multiple ) Rune: [WS TAB] Range: [] 
+	Returning: github.com/madlitz/inrush-core/parser.Scan
+Expect Token (): [EOF] 
+Found: EOF
+Returning: github.com/madlitz/inrush-core/parser.Parse

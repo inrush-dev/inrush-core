@@ -1,0 +1,4 @@
+github.com/google/go-cmp v0.6.0 h1:ofyhxvXcZhMsU5ulbFiLKl/XBFqE1GSq7atu8tAmTRI=
+github.com/google/go-cmp v0.6.0/go.mod h1:17dUlkBOakJ0+DkrSSNjCkIjxS6bF9zb3elmeNGIjoY=
+github.com/madlitz/go-dsl v0.0.0-20190215114640-9b6853fb735c h1:LSwlcDhzXq9kCxW9E6ZzN9hwTItse7xBVTbBngnS6a0=
+github.com/madlitz/go-dsl v0.0.0-20190215114640-9b6853fb735c/go.mod h1:g0f0hk2bKVVDwFp1pS6bW8lLlYjn8/EySbsbaBVDejw=
